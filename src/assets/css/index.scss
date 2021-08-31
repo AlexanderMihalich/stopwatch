@@ -4,10 +4,23 @@
 body {
 	background: linear-gradient(90deg, rgba(218, 104, 99, 1) 0%, rgba(32, 50, 180, 1) 100%);
 	color: #fff;
-	font-size: 18px;
 	font-family: "digitall";
-	@media (max-width: 600px) {
-		font-size: 16px;
+}
+h1 span {
+	position: relative;
+	font-size: 30px;
+	padding: 0px 10px;
+	&:after {
+		content: ":";
+		position: absolute;
+		font-size: 30px;
+		top: -3px;
+		right: -3px;
+	}
+	&:last-child {
+		&:after {
+			display: none;
+		}
 	}
 }
 .wrapper {
@@ -28,6 +41,13 @@ body {
 	margin: 0 auto;
 	width: 100%;
 	padding: 0px 10px;
+	@media (max-width: 991.98px) {
+		max-width: 400px;
+	}
+	@media (max-width: 767.98px) {
+		max-width: none;
+		padding: 0 10px;
+	}
 }
 /* </ОСНОВНАЯ СЕТКА>============================================= */
 
