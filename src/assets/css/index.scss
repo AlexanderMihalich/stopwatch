@@ -89,29 +89,31 @@ body {
 		display: block;
 		background-color: #fff;
 		color: #5a439b;
-		min-width: 20px;
-		padding: 2px 35px;
+		width: 23%;
+		padding: 2px 0px;
 		border-radius: 0 0 5px 5px;
 		&:disabled {
 			background-color: rgba(255, 255, 255, 0.5);
 			color: #6a4895;
-			&:nth-child(4n + 1) {
+			&:nth-child(5n + 1) {
 				color: #8b5185;
 			}
-			&:nth-child(4n + 2) {
+			&:nth-child(5n + 2) {
 				color: #834f8a;
 			}
-			&:nth-child(4n + 3) {
+			&:nth-child(5n + 3) {
 				color: #764b8f;
+			}
+			&:nth-child(5n + 4) {
+				color: #6a4895;
 			}
 		}
 		@media (max-width: 768px) {
 			font-size: 14px;
-			padding: 3px 20px;
+			padding: 3px 0px;
 		}
 		@media (max-width: 400px) {
 			font-size: 13px;
-			padding: 3px 12px;
 		}
 	}
 }
