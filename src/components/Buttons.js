@@ -1,12 +1,12 @@
 import React from 'react'
 
-const Buttons = () => {
+const Buttons = ({ timeStart, timeStop, timeReset, timeWait }) => {
 	return (
 		<div>
-			<button>Start</button>
-			<button>Stop</button>
-			<button>Reset</button>
-			<button>Wait</button>
+			<button onClick={timeStart}>Start</button>
+			<button onClick={timeStop}>Stop</button>
+			<button onClick={timeWait}>Wait</button>
+			<button onClick={timeReset}>Reset</button>
 		</div>
 	)
 }

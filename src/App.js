@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { interval, Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 import Buttons from "./components/Buttons";
@@ -23,15 +23,31 @@ const App = () => {
 		};
 	}, [start]);
 
+	const timeStart = useCallback(() => {
+		setStart(true);
+	}, []);
+
+	const timeStop = useCallback(() => {
+		setStart(false);
+		setTime(0);
+	}, []);
+
+	const timeReset = useCallback(() => {
+		setTime(0);
+	}, []);
+
+	const timeWait = useCallback(() => {
+		setStart(false);
+	}, []);
 
 	return (
 		<center>
 			<h1>
-				<span>{("0" + Math.floor((time / 3600000) % 24)).slice(-2)} </span>
+				<span>{("0" + Math.floor((time / 3600000) % 24)).slice(-2)}</span>
 				<span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}</span>
 				<span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}</span>
 			</h1>
-			<Buttons />
+			<Buttons timeStart={timeStart} timeStop={timeStop} timeReset={timeReset} timeWait={timeWait} />
 		</center>
 	);
 }
