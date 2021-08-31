@@ -6,32 +6,11 @@ body {
 	color: #fff;
 	font-family: "digitall";
 }
-h1 span {
-	position: relative;
-	font-size: 30px;
-	padding: 0px 10px;
-	&:after {
-		content: ":";
-		position: absolute;
-		font-size: 30px;
-		top: -3px;
-		right: -3px;
-	}
-	&:last-child {
-		&:after {
-			display: none;
-		}
-	}
-}
-.wrapper {
+#root {
+	display: flex;
 	width: 100%;
-	min-height: 100%;
+	min-height: 60%;
 	position: relative;
-	&__content {
-		height: 100%;
-		display: flex;
-		justify-content: center;
-	}
 }
 /* </ОБОЛОЧКА>=================================================== */
 
@@ -41,16 +20,99 @@ h1 span {
 	margin: 0 auto;
 	width: 100%;
 	padding: 0px 10px;
-	@media (max-width: 991.98px) {
+	@media (max-width: 768px) {
 		max-width: 400px;
 	}
-	@media (max-width: 767.98px) {
-		max-width: none;
-		padding: 0 10px;
+	@media (max-width: 400px) {
+		max-width: 320px;
 	}
 }
 /* </ОСНОВНАЯ СЕТКА>============================================= */
 
 /* <ОСНОВНОЙ БЛОК>============================================== */
-
+.stopWatch {
+	text-align: center;
+	margin: auto;
+	&__title {
+		border-radius: 25px;
+		border: 7px solid #fff;
+		padding: 18px 10px;
+		@media (max-width: 768px) {
+			border-radius: 20px;
+			border: 6px solid #fff;
+			padding: 15px 10px;
+		}
+		@media (max-width: 400px) {
+			padding: 10px 10px;
+		}
+	}
+	&__value {
+		position: relative;
+		font-size: 45px;
+		padding: 3px 25px;
+		&:after {
+			content: ":";
+			position: absolute;
+			font-size: 45px;
+			top: 0px;
+			right: -3px;
+		}
+		&:last-child {
+			&:after {
+				display: none;
+			}
+		}
+		@media (max-width: 768px) {
+			font-size: 30px;
+			&:after {
+				font-size: 30px;
+			}
+		}
+		@media (max-width: 400px) {
+			font-size: 26px;
+			&:after {
+				font-size: 26px;
+			}
+		}
+	}
+	&__buttons {
+		width: 90%;
+		margin: 0px auto;
+		display: flex;
+		justify-content: space-between;
+	}
+	&__button {
+		text-transform: uppercase;
+		font-size: 18px;
+		font-weight: 700;
+		margin: -2px 0px 0px 0px;
+		display: block;
+		background-color: #fff;
+		color: #5a439b;
+		min-width: 20px;
+		padding: 2px 35px;
+		border-radius: 0 0 5px 5px;
+		&:disabled {
+			background-color: rgba(255, 255, 255, 0.5);
+			color: #6a4895;
+			&:nth-child(4n + 1) {
+				color: #8b5185;
+			}
+			&:nth-child(4n + 2) {
+				color: #834f8a;
+			}
+			&:nth-child(4n + 3) {
+				color: #764b8f;
+			}
+		}
+		@media (max-width: 768px) {
+			font-size: 14px;
+			padding: 3px 20px;
+		}
+		@media (max-width: 400px) {
+			font-size: 13px;
+			padding: 3px 12px;
+		}
+	}
+}
 /* </ОСНОВНОЙ БЛОК>============================================== */

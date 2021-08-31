@@ -7,6 +7,7 @@ const App = () => {
 
 	const [time, setTime] = useState(0);
 	const [start, setStart] = useState(false)
+	const [startActive, setStartActive] = useState(false)
 
 	useEffect(() => {
 		const stopWatch$ = new Subject();
@@ -25,10 +26,12 @@ const App = () => {
 
 	const timeStart = useCallback(() => {
 		setStart(true);
+		setStartActive(true)
 	}, []);
 
 	const timeStop = useCallback(() => {
 		setStart(false);
+		setStartActive(false)
 		setTime(0);
 	}, []);
 
@@ -38,17 +41,18 @@ const App = () => {
 
 	const timeWait = useCallback(() => {
 		setStart(false);
+		setStartActive(false)
 	}, []);
 
 	return (
-		<center>
-			<h1>
-				<span>{("0" + Math.floor((time / 3600000) % 24)).slice(-2)}</span>
-				<span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}</span>
-				<span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}</span>
+		<div className="stopWatch _container">
+			<h1 className="stopWatch__title">
+				<span className="stopWatch__value">{("0" + Math.floor((time / 3600000) % 24)).slice(-2)}</span>
+				<span className="stopWatch__value">{("0" + Math.floor((time / 60000) % 60)).slice(-2)}</span>
+				<span className="stopWatch__value">{("0" + Math.floor((time / 1000) % 60)).slice(-2)}</span>
 			</h1>
-			<Buttons timeStart={timeStart} timeStop={timeStop} timeReset={timeReset} timeWait={timeWait} />
-		</center>
+			<Buttons timeStart={timeStart} timeStop={timeStop} timeReset={timeReset} timeWait={timeWait} startActive={startActive} />
+		</div>
 	);
 }
 

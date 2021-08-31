@@ -1,12 +1,12 @@
 import React from 'react'
 
-const Buttons = ({ timeStart, timeStop, timeReset, timeWait }) => {
+const Buttons = ({ timeStart, timeStop, timeReset, timeWait, startActive }) => {
 	return (
-		<div>
-			<button onClick={timeStart}>Start</button>
-			<button onClick={timeStop}>Stop</button>
-			<button onClick={timeWait}>Wait</button>
-			<button onClick={timeReset}>Reset</button>
+		<div className="stopWatch__buttons">
+			<button className="stopWatch__button" disabled={startActive} onClick={timeStart}>Start</button>
+			<button className="stopWatch__button" disabled={!startActive} onClick={timeStop}>Stop</button>
+			<button className="stopWatch__button" disabled={!startActive} onClick={timeWait}>Wait</button>
+			<button className="stopWatch__button" disabled={!startActive} onClick={timeReset}>Reset</button>
 		</div>
 	)
 }
